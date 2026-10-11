@@ -1,12 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, status
+from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(title= "StudyPilot API")
 
-@app.get("/")
-def read_root():
-    return {"Hello" : "World"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/health", status_code=status.HTTP_200_OK)
+def health_check():
+    return {"status" : "healthy"}
+
+@app.get("/version", status_code=status.HTTP_200_OK)
+def get_version():
+    return{
+        "version": "0.1.0",
+        "environment": "development"
+    }
 
