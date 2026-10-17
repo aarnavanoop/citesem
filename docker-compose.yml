@@ -1,13 +1,14 @@
 services:
+
   api:
-    build: ???            # where is your Dockerfile, relative to this file?
+    build: .
     ports:
-      - "???:???"         # HOST:CONTAINER, same mapping as your docker run -p
-    env_file:
-      - ???               # which file holds your config?
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     depends_on:
       postgres:
-        condition: ???    # not just "started". Which condition waits for the healthcheck?
+        condition: service_healthy
 
   postgres:
     image: postgres:16
@@ -16,9 +17,9 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - "???:5432"        # see "Your daily workflow" below
+      - "5433:5432"
     volumes:
-      - ???:/var/lib/postgresql/data   # name for the volume : where Postgres stores data
+      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
@@ -26,4 +27,4 @@ services:
       retries: 5
 
 volumes:
-  ???:                    # declare the same volume name here
+  pgdata:
