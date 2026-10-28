@@ -5,9 +5,9 @@ from typing import Optional
 app = FastAPI(title= "StudyPilot API")
 
 class CourseCreate(BaseModel):
-    title: str
+    name: str
     description: str | None = None
-    unit_code: int
+    unit_code: str
 
 
 @app.get("/health", status_code=status.HTTP_200_OK)
