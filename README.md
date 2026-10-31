@@ -1,6 +1,6 @@
-# StudyPilot
+# CiteSem
 
-StudyPilot is a web app for university students to turn their unit materials into a study tool. Students upload lecture slides, PDFs and notes, then ask questions and get answers with cited sources (file and page). It will also generate quizzes and schedule flashcard reviews using spaced repetition (SM-2). Under the hood it is built like a production system: an ingestion and cleaning pipeline, hybrid (vector + keyword) retrieval, background workers, an authenticated REST API, automated RAG evaluation, and infrastructure as code on AWS. It is built for students, tested with real classmates, and every part is something I can explain and rebuild from scratch.
+CiteSem (Cite + Semester) is a web app for university students to turn their unit materials into a study tool. Students upload lecture slides, PDFs and notes, then ask questions and get answers with cited sources (file and page). It will also generate quizzes and schedule flashcard reviews using spaced repetition (SM-2). Under the hood it is built like a production system: an ingestion and cleaning pipeline, hybrid (vector + keyword) retrieval, background workers, an authenticated REST API, automated RAG evaluation, and infrastructure as code on AWS. It is built for students, tested with real classmates, and every part is something I can explain and rebuild from scratch.
 
 
 
