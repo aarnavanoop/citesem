@@ -2,7 +2,7 @@ from fastapi import FastAPI, status
 
 from app.routers import courses
 
-app = FastAPI(title="StudyPilot API")
+app = FastAPI(title="CiteSem API")
 app.include_router(courses.router)
 
 

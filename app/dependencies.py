@@ -3,7 +3,7 @@ from sqlalchemy import select
 from app.database import DbSession
 from app.models import User
 
-DEV_EMAIL = "dev@studypilot.local"
+DEV_EMAIL = "dev@citesem.local"
 
 
 def get_current_user(db: DbSession) -> User:
